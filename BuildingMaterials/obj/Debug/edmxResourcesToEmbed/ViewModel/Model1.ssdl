@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TradeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.City1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="City1">
+          <Property Name="ID" Type="float" />
+          <Property Name="город" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusID" Type="int" Nullable="false" />
+    <Property Name="OrderDeliveryDate" Type="datetime" Nullable="false" />
+    <Property Name="OrderPickupPointID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="CodeToReceive" Type="int" Nullable="false" />
+    <Property Name="OrderDatedatetime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.Order1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Order1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Статус заказа" Type="float" />
+          <Property Name="Дата доставки" Type="datetime" />
+          <Property Name="Пункт выдачи" Type="float" />
+          <Property Name="ID Клиента" Type="float" />
+          <Property Name="Код для получения" Type="float" />
+          <Property Name="ДАТА ЗАКАЗА" Type="datetime" />
+        </EntityType>-->
+  <EntityType Name="OrderPickupPoint">
+    <Key>
+      <PropertyRef Name="OrderPickupPointID" />
+    </Key>
+    <Property Name="OrderPickupPointID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Postcode" Type="int" Nullable="false" />
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="StreetName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="HouseNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.OrderPickupPoint1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="OrderPickupPoint1">
+          <Property Name="Пункт выдачи" Type="float" />
+          <Property Name="F2" Type="float" />
+          <Property Name="F3" Type="nvarchar" MaxLength="255" />
+          <Property Name="F4" Type="nvarchar" MaxLength="255" />
+          <Property Name="F5" Type="float" />
+        </EntityType>-->
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatus" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.OrderStatus1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="OrderStatus1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Статус заказа" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductArticleNumber" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductNameID" Type="int" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ProductCategory" Type="int" Nullable="false" />
+    <Property Name="ProductPhoto" Type="image" Nullable="false" />
+    <Property Name="ProductManufacturer" Type="int" Nullable="false" />
+    <Property Name="ProductSupplier" Type="int" Nullable="false" />
+    <Property Name="ProductCost" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ProductDiscountAmount" Type="tinyint" />
+    <Property Name="ProductQuantityInStock" Type="int" Nullable="false" />
+    <Property Name="ProductStatus" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.Product1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Product1">
+          <Property Name="ID Товара" Type="float" />
+          <Property Name="Артикул" Type="nvarchar" MaxLength="255" />
+          <Property Name="Наименование " Type="float" />
+          <Property Name="Единица измерения" Type="nvarchar" MaxLength="255" />
+          <Property Name="Стоимость" Type="float" />
+          <Property Name="Размер максимально возможной скидки" Type="float" />
+          <Property Name="Производитель" Type="float" />
+          <Property Name="Поставщик" Type="float" />
+          <Property Name="Категория товара" Type="float" />
+          <Property Name="Действующая скидка" Type="float" />
+          <Property Name="Кол-во на складе" Type="float" />
+          <Property Name="Описание" Type="nvarchar" MaxLength="255" />
+          <Property Name="Изображение" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategory" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.ProductCategory1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ProductCategory1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Категория товара" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="ProductManufacturer">
+    <Key>
+      <PropertyRef Name="ProductManufacturerID" />
+    </Key>
+    <Property Name="ProductManufacturerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductManufacturer" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.ProductManufacturer1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ProductManufacturer1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Производитель" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="ProductName">
+    <Key>
+      <PropertyRef Name="ProductNameID" />
+    </Key>
+    <Property Name="ProductNameID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.ProductName1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ProductName1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Наименование " Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="ProductSupplier">
+    <Key>
+      <PropertyRef Name="ProductSupplierID" />
+    </Key>
+    <Property Name="ProductSupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductSupplier" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.ProductSupplier1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ProductSupplier1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Поставщик" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.Role1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Role1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Роль сотрудника" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserSurname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserPatronymic" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="UserLogin" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserRole" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Trade.dbo.User1" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="User1">
+          <Property Name="ID" Type="float" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="255" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="255" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="255" />
+          <Property Name="Логин" Type="nvarchar" MaxLength="255" />
+          <Property Name="Пароль" Type="nvarchar" MaxLength="255" />
+          <Property Name="Роль сотрудника" Type="float" />
+        </EntityType>-->
+  <Association Name="FK__Order__OrderPick__5070F446">
+    <End Role="OrderPickupPoint" Type="Self.OrderPickupPoint" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPickupPoint">
+        <PropertyRef Name="OrderPickupPointID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderPickupPointID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__OrderStat__4F7CD00D">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="OrderStatusID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__UserID__5165187F">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderPick__CityI__3A81B327">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="OrderPickupPoint" Type="Self.OrderPickupPoint" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="CityID" />
+      </Principal>
+      <Dependent Role="OrderPickupPoint">
+        <PropertyRef Name="CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__46E78A0C">
+    <End Role="ProductName" Type="Self.ProductName" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductName">
+        <PropertyRef Name="ProductNameID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductNameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__47DBAE45">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__48CFD27E">
+    <End Role="ProductManufacturer" Type="Self.ProductManufacturer" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductManufacturer">
+        <PropertyRef Name="ProductManufacturerID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductManufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__49C3F6B7">
+    <End Role="ProductSupplier" Type="Self.ProductSupplier" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductSupplier">
+        <PropertyRef Name="ProductSupplierID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductSupplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__UserRole__4CA06362">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище TradeModelContainer">
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderPickupPoint" EntityType="Self.OrderPickupPoint" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductManufacturer" EntityType="Self.ProductManufacturer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductName" EntityType="Self.ProductName" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSupplier" EntityType="Self.ProductSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Order__OrderPick__5070F446" Association="Self.FK__Order__OrderPick__5070F446">
+      <End Role="OrderPickupPoint" EntitySet="OrderPickupPoint" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__OrderStat__4F7CD00D" Association="Self.FK__Order__OrderStat__4F7CD00D">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__UserID__5165187F" Association="Self.FK__Order__UserID__5165187F">
+      <End Role="User" EntitySet="User" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderPick__CityI__3A81B327" Association="Self.FK__OrderPick__CityI__3A81B327">
+      <End Role="City" EntitySet="City" />
+      <End Role="OrderPickupPoint" EntitySet="OrderPickupPoint" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__46E78A0C" Association="Self.FK__Product__Product__46E78A0C">
+      <End Role="ProductName" EntitySet="ProductName" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__47DBAE45" Association="Self.FK__Product__Product__47DBAE45">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__48CFD27E" Association="Self.FK__Product__Product__48CFD27E">
+      <End Role="ProductManufacturer" EntitySet="ProductManufacturer" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__49C3F6B7" Association="Self.FK__Product__Product__49C3F6B7">
+      <End Role="ProductSupplier" EntitySet="ProductSupplier" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__UserRole__4CA06362" Association="Self.FK__User__UserRole__4CA06362">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
